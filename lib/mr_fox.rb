@@ -1,0 +1,3 @@
+module MrFox
+  # Your code goes here...
+end
