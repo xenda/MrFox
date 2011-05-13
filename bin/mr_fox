@@ -18,6 +18,7 @@ get '/' do
       font-family: "Georgia";
       text-align: center;
       font-size:40px;
+      color:white;
     }
   </style>
   <h1>Mr. Fox will be coming right now</h1>
