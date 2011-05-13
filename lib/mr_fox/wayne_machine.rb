@@ -15,20 +15,26 @@ module MrFox
     def _call(env)
 
       # SEND STUFF TO MrFox WayneMachine
-      
       @starting = Time.now
       @status, @headers, @response = @app.call(env)
       @stopping = Time.now
+
+      params = {:record => 
+                  { :status => @status, 
+                    :headers => @headers, 
+                    :response => @response
+                  }  
+                }
       
       # UPDATE STUFF ON Mr Fox WayneMachine
-      Net::HTTP.post_form(URI.parse('http://mr_fox_server.dev/records.json'),
-                                    {'record' => {:status => @status, :headers => @headers, :response => @response}})
-      [@status, @headers, self]
-      
+      Net::HTTP.post_form(URI.parse('http://mr-fox-server.dev/records.json'),params)
+      [@status, @headers, self]      
     end
     
     def each(&block)
-      unless [304,404].include? @status        
+
+
+      unless [304,404,500].include? @status        
         if @headers['Content-Type'].include? "text/html"
           block.call("<!-- Watched by MrFox. Rendered in #{@stopping - @starting}ms -->\n")
         end
