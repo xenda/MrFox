@@ -1,9 +1,10 @@
-require 'mr_fox/middleware'
+require 'mr_fox/wayne_machine'
 
 module MrFox
   class Railtie < Rails::Railtie
-    initializer "mr_fox.insert_middleware" do |app|
-      app.config.middleware.use "MrFox::Middleware"
+    
+    initializer "MrFox.insert_middleware" do |app|
+      app.config.middleware.use "MrFox::WayneMachine"
     end
   end
 end

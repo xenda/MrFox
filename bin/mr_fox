@@ -22,6 +22,7 @@ get '/' do
     }
   </style>
   <h1>Mr. Fox will be coming right now</h1>
+  <h2>A tool even Batman needs</h2>  
   <center>
   <img src='http://3.bp.blogspot.com/_ypw0qX59HUE/SinaqflOzcI/AAAAAAAAAOs/BHtKj7fRbno/s1600/IMG_00069.JPG'/>
   </center>
